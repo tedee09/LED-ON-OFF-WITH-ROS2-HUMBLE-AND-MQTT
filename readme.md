@@ -30,10 +30,10 @@ hostname -I
 sudo systemctl start mosquitto
 ```
 3. Verifikasi bahwa broker aktif dan mendengarkan pada port 1883
+Jika terlihat seperti *:1883 (LISTEN), broker sudah siap menerima koneksi.
 ```
 sudo lsof -i :1883
 ```
-Jika terlihat seperti *:1883 (LISTEN), broker sudah siap menerima koneksi.
 4. topik untuk menyalakan led esp8266
 ```
 mosquitto_pub -h <IP_BROKER> -t esp8266/led -m "ON"
