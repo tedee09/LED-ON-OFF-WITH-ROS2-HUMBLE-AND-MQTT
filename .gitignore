@@ -1,0 +1,12 @@
+# Ignore ROS 2 build, install, and log directories
+ros2_ws/build/
+ros2_ws/install/
+ros2_ws/log/
+
+# Ignore Arduino build files
+*.bin
+*.elf
+*.hex
+
+# General ignores
+.DS_Store
