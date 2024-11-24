@@ -19,3 +19,30 @@ This project demonstrates how to control an LED using MQTT with ESP8266 and inte
 
 ## Acknowledgments
 Thanks to the ROS 2 and Arduino communities for their awesome tools and libraries.
+
+## Note Perintah
+1. Periksa Alamat IP Komputer
+```
+hostname -I
+```
+2. Cek Broker MQTT Berjalan di komputer
+```
+sudo systemctl start mosquitto
+```
+3. Verifikasi bahwa broker aktif dan mendengarkan pada port 1883
+```
+sudo lsof -i :1883
+```
+Jika terlihat seperti *:1883 (LISTEN), broker sudah siap menerima koneksi.
+4. topik untuk menyalakan led esp8266
+```
+mosquitto_pub -h <IP_BROKER> -t esp8266/led -m "ON"
+```
+5. topik untuk mematikan led esp8266
+```
+mosquitto_pub -h <IP_BROKER> -t esp8266/led -m "OFF"
+```
+6. cek subscriber MQTT di komputer untuk melihat aktivitas topik
+```
+mosquitto_sub -h 192.168.48.247 -t esp8266/led
+```
